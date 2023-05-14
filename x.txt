@@ -1,0 +1,10 @@
+{
+    "name": "user",
+    "about": "userenok",
+    "avatar": "https://image.pmgstatic.com/cache/resized/w1326/files/images/film/photos/160/380/160380001_b94abe.jpg"
+}
+
+
+
+
+
