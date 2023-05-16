@@ -60,6 +60,6 @@ content-type: application/json
 
 #############
 
-DELETE  http://127.0.0.1:3000/cards/64635ac1e22249accd44b1c7
+DELETE  http://127.0.0.1:3000/cards/646339f8387b39dde82bec02
 content-type: application/json
 
