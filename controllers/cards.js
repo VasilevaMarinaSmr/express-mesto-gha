@@ -2,7 +2,7 @@ const Card = require("../models/card");
 
 module.exports.getCards = (req, res) => {
   Card.find({})
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send( card ))
     .catch((err) =>
       res.status(500).send({ message: `Произошла ошибка ${err.message}` })
     );
@@ -22,12 +22,21 @@ module.exports.delCard = (req, res) => {
   Card.findByIdAndRemove(req.params.cardId)
     .then((card) => {
       if (!card) {
-        res.send({ message: "Запрашиваемая карточка не найдена" });
-        return;
+        res
+          .status(404)
+          .send({ message: 'Карточка с указанным _id не найдена.' });
+      } else {
+        res.status(200).send({ message: 'Карточка удалена' });
       }
-      res.send(card);
     })
-    .catch((err) =>
-      res.status(500).send({ message: `Произошла ошибка ${err.message}` })
-    );
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        res.status(400).send({
+          message: 'Переданы некорректные данные',
+        });
+      } else {
+        res.status(500).send({ message: `Произошла ошибка ${err.message}` });
+      }
+    });
 };
+
