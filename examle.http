@@ -4,7 +4,6 @@ Authorization: aa8e790a-3250-4e42-83f6-285a574f94a9
 
 ############
 
-
 PATCH  http://127.0.0.1:3000/users/me
 content-type: application/json
 
@@ -14,18 +13,13 @@ content-type: application/json
 }
 
 
-
 ############
-
 
 GET  http://127.0.0.1:3000/users
 content-type: application/json
 
 
 ############
-
-
-
 GET  https://mesto.nomoreparties.co/v1/cohort-60/cards
 content-type: application/json
 
@@ -49,9 +43,6 @@ content-type: application/json
   "about": "userenok1",
   "avatar": "https://mobimg.b-cdn.net/v3/fetch/e6/e6631960d3d446633839c78db26f82ce.jpeg"
 }
-
-############
-
 
 ############
 
@@ -84,3 +75,12 @@ content-type: application/json
 DELETE  http://127.0.0.1:3000/cards/646339f8387b39dde82bec02
 content-type: application/json
 
+#############
+
+PATCH  http://127.0.0.1:3000/users/me/avatar
+content-type: application/json
+
+{
+  "avatar": "user1",
+  "about": "userenok1"
+}
