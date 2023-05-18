@@ -8,7 +8,7 @@ PATCH  http://127.0.0.1:3000/users/me
 content-type: application/json
 
 {
-  "name": "user1",
+  "name": "user3",
   "about": "userenok1"
 }
 
@@ -81,6 +81,6 @@ PATCH  http://127.0.0.1:3000/users/me/avatar
 content-type: application/json
 
 {
-  "avatar": "user1",
-  "about": "userenok1"
+
+  "avatar": "https://mobimg.b-cdn.net44e6631960d3d446633839c78db26f82ce.jpeg"
 }
