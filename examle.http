@@ -97,3 +97,11 @@ content-type: application/json
 
 DELETE   http://127.0.0.1:3000/cards/64624a4968ed446496ffd84c/likes
 content-type: application/json
+
+
+
+############
+
+
+PATCH http://127.0.0.1:3000/404
+content-type: application/json

@@ -20,6 +20,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', require('./routes/users'));
 app.use('/', require('./routes/cards'));
+app.use((req, res, next) => {
+  res.status(404).send({ message: 'Cтраница не существует' });
+  next();
+});
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
