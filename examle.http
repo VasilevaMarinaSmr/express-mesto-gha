@@ -84,3 +84,16 @@ content-type: application/json
 
   "avatar": "https://mobimg.b-cdn.net446633839c78db26f82ce.jpeg"
 }
+
+
+############
+
+
+PUT   http://127.0.0.1:3000/cards/64624a4968ed446496ffd84c/likes
+content-type: application/json
+
+############
+
+
+DELETE   http://127.0.0.1:3000/cards/64624a4968ed446496ffd84c/likes
+content-type: application/json
