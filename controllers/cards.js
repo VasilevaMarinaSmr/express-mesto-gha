@@ -1,10 +1,15 @@
 const Card = require('../models/card');
-const { ERROR_REQUEST, ERROR_DATA_NOT_FOUND, SERVER_ERROR } = require('../utils/errors');
+const {
+  ERROR_REQUEST,
+  ERROR_DATA_NOT_FOUND,
+  SERVER_ERROR,
+} = require('../utils/errors');
 
 module.exports.getCards = (req, res) => {
   Card.find({})
     .then((card) => res.send(card))
-    .catch((err) => res.status(SERVER_ERROR).send({ message: 'Ошибка по умолчанию.' }));
+    .catch(() => res.status(SERVER_ERROR)
+      .send({ message: 'Ошибка по умолчанию.' }));
 };
 
 module.exports.createCard = (req, res) => {
@@ -49,7 +54,7 @@ module.exports.likesCard = (req, res) => {
   Card.findByIdAndUpdate(
     req.params.cardId,
     { $addToSet: { likes: req.user._id } },
-    { new: true }
+    { new: true },
   )
     .then((card) => {
       if (!card) {
@@ -75,7 +80,7 @@ module.exports.dislikesCard = (req, res) => {
   Card.findByIdAndUpdate(
     req.params.cardId,
     { $pull: { likes: req.user._id } },
-    { new: true }
+    { new: true },
   )
     .then((card) => {
       if (!card) {
