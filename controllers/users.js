@@ -1,10 +1,14 @@
 const User = require("../models/user");
-const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const {
   ERROR_REQUEST,
   ERROR_DATA_NOT_FOUND,
   SERVER_ERROR,
 } = require("../utils/errors");
+
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 
 module.exports.getUsers = (req, res) => {
   User.find({})
@@ -110,9 +114,14 @@ module.exports.updateAvatar = (req, res) => {
 module.exports.login = (req, res) => {
   const { email, password } = req.body;
 
-  return User.findUserByCredentials(email, password)
-    .then((user) => {
-      // аутентификация успешна! пользователь в переменной user
+  User.findUserByCredentials(email, password)
+    .then((validUser) => {
+      const token = jwt.sign(
+        { _id: validUser._id },
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+        { expiresIn: '7d' }
+      );
+      res.cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: true, sameSite: true }).send({ token }).end();
     })
     .catch((err) => {
       // ошибка аутентификации
@@ -120,7 +129,4 @@ module.exports.login = (req, res) => {
         .status(401)
         .send({ message: err.message });
     });
-};
-
-
 };

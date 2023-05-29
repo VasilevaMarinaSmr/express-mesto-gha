@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -13,7 +16,7 @@ const app = express();
 
 app.use((req, res, next) => {
   req.user = {
-    _id: '6455aa511f782c8f299ca3ab',
+    _id: '64733fbd6dfa5d681d77f8d7',
   };
   next();
 });
