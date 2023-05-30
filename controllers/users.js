@@ -1,6 +1,10 @@
 const User = require("../models/user");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const errorRequest  = require("../errors/error-request");
+const errorDataNotFound = require("../errors/datat-not-found-err");
+
+
 const {
   ERROR_REQUEST,
   ERROR_DATA_NOT_FOUND,

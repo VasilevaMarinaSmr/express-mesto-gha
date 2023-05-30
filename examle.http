@@ -121,9 +121,7 @@ content-type: application/json
 POST  http://127.0.0.1:3000/users
 content-type: application/json
 
-{ "name": "user13",
-  "about": "userenok13",
-  "avatar": "https://mobimg.b-cdn.net/v3/fetch/e6/e6631960d3d446633839c78db26f82ce.jpeg",
+{ 
   "email": "user18@mail.ru",
   "password": "userenok13"
 }
@@ -149,10 +147,21 @@ content-type: application/json
 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDczM2ZiZDZkZmE1ZDY4MWQ3N2Y4ZDciLCJpYXQiOjE2ODUzOTM5MzksImV4cCI6MTY4NTk5ODczOX0.5jmll87zwTh08qYkQNWe2Jq6TU3-oNUWFfZIfjNQSmM"
 ##################
 
+POST  http://127.0.0.1:3000/signup
+content-type: application/json
+
+{
+  "email": "user1@mail.ru",
+  "password": "userenok1"
+}
+
+
+##################
+
 POST  http://127.0.0.1:3000/signin
 content-type: application/json
 
 {
-  "email": "user@mail.ru",
+  "email": "user1@mail.ru",
   "password": "userenok13"
 }
