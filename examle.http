@@ -16,7 +16,12 @@ content-type: application/json
 ############
 
 GET  http://127.0.0.1:3000/users
+
 content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDczM2ZiZDZkZmE1ZDY4MWQ3N2Y4ZDciLCJpYXQiOjE2ODUzOTM5MzksImV4cCI6MTY4NTk5ODczOX0.5jmll87zwTh08qYkQNWe2Jq6TU3-oNUWFfZIfjNQSmM
+
+
+
 
 
 ############
@@ -48,6 +53,7 @@ content-type: application/json
 
 
 GET  http://127.0.0.1:3000/cards
+
 content-type: application/json
 
 
@@ -57,7 +63,7 @@ content-type: application/json
 POST  http://127.0.0.1:3000/cards
 content-type: application/json
 
-{ "name": "mesto2",
+{ "name": "mesto3",
   "link": "https://mobimg.b-cdn.net/v3/fetch/e6/e6631960d3d446633839c78db26f82ce.jpeg"
 }
 
@@ -79,6 +85,7 @@ content-type: application/json
 
 PATCH  http://127.0.0.1:3000/users/me/avatar
 content-type: application/json
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDczM2ZiZDZkZmE1ZDY4MWQ3N2Y4ZDciLCJpYXQiOjE2ODUzOTM5MzksImV4cCI6MTY4NTk5ODczOX0.5jmll87zwTh08qYkQNWe2Jq6TU3-oNUWFfZIfjNQSmM
 
 {
 
@@ -136,10 +143,16 @@ content-type: application/json
 }
 
 
-POST  http://127.0.0.1:3000/users
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDczM2ZiZDZkZmE1ZDY4MWQ3N2Y4ZDciLCJpYXQiOjE2ODUzOTM4OTAsImV4cCI6MTY4NTk5ODY5MH0.R00HKlVVLtg60NsHD3-kN9jM_ND3Bze6M4xVuCGbl2Q"
+
+
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDczM2ZiZDZkZmE1ZDY4MWQ3N2Y4ZDciLCJpYXQiOjE2ODUzOTM5MzksImV4cCI6MTY4NTk5ODczOX0.5jmll87zwTh08qYkQNWe2Jq6TU3-oNUWFfZIfjNQSmM"
+##################
+
+POST  http://127.0.0.1:3000/signin
 content-type: application/json
 
 {
-  "name": "user",
-  "about": "userenok",
+  "email": "user@mail.ru",
+  "password": "userenok13"
 }

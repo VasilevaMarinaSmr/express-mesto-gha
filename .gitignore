@@ -15,7 +15,7 @@ node_modules
 .vscode
 
 # Test REST
-examle.http
+
 
 
 .env
