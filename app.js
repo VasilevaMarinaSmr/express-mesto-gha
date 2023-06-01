@@ -32,5 +32,19 @@ app.use('*', (req, res, next) => {
   next(new NotFoundError({ message: 'Cтраница не существует' }));
 });
 
+app.use((err, req, res, next) => {
+  const { statusCode, message } = err;
+
+  if (statusCode) {
+    return res.status(statusCode).send({ message });
+  }
+
+  return next();
+});
+
+app.use((req, res) => {
+  res.status(500).send({ message: 'На сервере произошла ошибка' });
+});
+
 
 app.listen(PORT);
