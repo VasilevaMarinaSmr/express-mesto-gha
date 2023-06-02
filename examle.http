@@ -19,11 +19,6 @@ GET  http://127.0.0.1:3000/users
 
 content-type: application/json
 
-
-
-
-
-
 ############
 GET  https://mesto.nomoreparties.co/v1/cohort-60/cards
 content-type: application/json
@@ -34,7 +29,9 @@ content-type: application/json
 
 
 ##################
-GET  http://127.0.0.1:3000/users/64631e8d3f834371da10dcb5
+GET  http://127.0.0.1:3000/users/647a59a3c6ab891012c5f3b1
+
+
 
 content-type: application/json
 
@@ -78,7 +75,7 @@ content-type: application/json
 
 #############
 
-DELETE  http://127.0.0.1:3000/cards/646339f8387b39dde82bec02
+DELETE  http://127.0.0.1:3000/cards/647a59ebc6ab891012c5f3b5
 content-type: application/json
 
 #############
@@ -158,8 +155,8 @@ POST  http://127.0.0.1:3000/signin
 content-type: application/json
 
 {
-  "email": "user@mail.ru",
-  "password": "userenok13"
+  "email": "user1@mail.ru",
+  "password": "userenok1"
 }
 
 

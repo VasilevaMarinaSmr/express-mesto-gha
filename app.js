@@ -10,7 +10,7 @@ const { login, createUser, logout } = require("./controllers/users");
 
 const { PORT = 3000 } = process.env;
 const { NotFoundError } = require("./errors/datat-not-found-err");
-const urlPattern = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/;
+const urlTemplate = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/;
 const app = express();
 app.use(cookieParser());
 
@@ -36,7 +36,7 @@ app.post(
     body: Joi.object().keys({
       name: Joi.string().min(2).max(30),
       about: Joi.string().min(2).max(30),
-      avatar: Joi.string().pattern(urlPattern),
+      avatar: Joi.string().pattern(urlTemplate),
       email: Joi.string().required(),
       password: Joi.string().required(),
     }),
