@@ -18,7 +18,7 @@ content-type: application/json
 GET  http://127.0.0.1:3000/users
 
 content-type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDczM2ZiZDZkZmE1ZDY4MWQ3N2Y4ZDciLCJpYXQiOjE2ODUzOTM5MzksImV4cCI6MTY4NTk5ODczOX0.5jmll87zwTh08qYkQNWe2Jq6TU3-oNUWFfZIfjNQSmM
+
 
 
 
@@ -121,13 +121,13 @@ content-type: application/json
 POST  http://127.0.0.1:3000/users
 content-type: application/json
 
-{ 
+{
   "email": "user18@mail.ru",
   "password": "userenok13"
 }
 
 ##################
-POST  http://127.0.0.1:3000/users
+POST  http://127.0.0.1:3000/signup
 content-type: application/json
 
 {
@@ -141,10 +141,6 @@ content-type: application/json
 }
 
 
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDczM2ZiZDZkZmE1ZDY4MWQ3N2Y4ZDciLCJpYXQiOjE2ODUzOTM4OTAsImV4cCI6MTY4NTk5ODY5MH0.R00HKlVVLtg60NsHD3-kN9jM_ND3Bze6M4xVuCGbl2Q"
-
-
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDczM2ZiZDZkZmE1ZDY4MWQ3N2Y4ZDciLCJpYXQiOjE2ODUzOTM5MzksImV4cCI6MTY4NTk5ODczOX0.5jmll87zwTh08qYkQNWe2Jq6TU3-oNUWFfZIfjNQSmM"
 ##################
 
 POST  http://127.0.0.1:3000/signup
@@ -162,6 +158,13 @@ POST  http://127.0.0.1:3000/signin
 content-type: application/json
 
 {
-  "email": "user1@mail.ru",
+  "email": "user@mail.ru",
   "password": "userenok13"
 }
+
+
+
+#################
+
+POST  http://127.0.0.1:3000/signout
+content-type: application/json
