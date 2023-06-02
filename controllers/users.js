@@ -16,10 +16,10 @@ module.exports.getUsers = (req, res, next) => {
 module.exports.getUser = (req, res, next) => {
   User.findById(req.params.userId)
     .then((user) => {
-        if (!user) {
-          throw new NotFoundError("Пользователь по указанному _id не найден.");
-        }
-        res.send(user);
+      if (!user) {
+        throw new NotFoundError("Пользователь по указанному _id не найден.");
+      }
+      res.send(user);
     })
     .catch(next);
 };
@@ -54,23 +54,22 @@ module.exports.updateProfile = (req, res, next) => {
     { name, about },
     { new: true, runValidators: true }
   )
-
     .then((user) => {
       if (!user) {
-        res
-          .status(ERROR_DATA_NOT_FOUND)
-          .send({ message: "Пользователь с указанным _id не найден." });
+        throw new ErrorDataNotFound("Пользователь с указанным _id не найден.");
       } else {
         res.send(user);
       }
     })
     .catch((err) => {
       if (err.name === "ValidationError") {
-        res.status(ERROR_REQUEST).send({
-          message: "Переданы некорректные данные при обновлении профиля.",
-        });
+        next(
+          new ErrorRequest(
+            "Переданы некорректные данные при обновлении профиля."
+          )
+        );
       } else {
-        res.status(SERVER_ERROR).send({ message: "Ошибка по умолчанию." });
+        next(err);
       }
     });
 };
