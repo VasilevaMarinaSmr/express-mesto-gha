@@ -37,6 +37,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    select: false,
   }
 });
 
@@ -50,9 +51,8 @@ userSchema.statics.findUserByCredentials = function(email, password) {
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            return Promise.reject(new Error('Неправильные почта или пароль'));
+            return Promise.reject(new ErrorAuthorization('Неправильные почта или пароль'));
           }
-
           return user; // теперь user доступен
         });
     });

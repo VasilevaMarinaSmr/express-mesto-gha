@@ -144,7 +144,7 @@ POST  http://127.0.0.1:3000/signup
 content-type: application/json
 
 {
-  "email": "user1@mail.ru",
+  "email": "user550@mail.ru",
   "password": "userenok1"
 }
 
@@ -155,7 +155,7 @@ POST  http://127.0.0.1:3000/signin
 content-type: application/json
 
 {
-  "email": "user1@mail.ru",
+  "email": "user1mail.ru",
   "password": "userenok1"
 }
 
