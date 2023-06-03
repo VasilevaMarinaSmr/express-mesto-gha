@@ -116,17 +116,19 @@ module.exports.login = (req, res, next) => {
     .then((validUser) => {
       const token = jwt.sign(
         { _id: validUser._id },
-        NODE_ENV === "production" ? JWT_SECRET : "dev-secret",
-        { expiresIn: "7d" }
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+        { expiresIn: '7d' }
       );
-      res
-        .cookie("jwt", token, {
+
+      User.findOne({ email }).then((user) => {
+        res
+          .cookie('jwt', token, {
           maxAge: 3600000 * 24 * 7,
           httpOnly: true,
           sameSite: true,
-        })
-        .send(user)
-        .end();
+          })
+          .send(user);
+      });
     })
     .catch(next);
 };
