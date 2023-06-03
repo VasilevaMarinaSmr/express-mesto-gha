@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
-const ErrorAuthorization = require("../errors/error-authorization");
+const ErrorAuthorization = require('../errors/error-authorization');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -21,7 +21,8 @@ const userSchema = new mongoose.Schema({
   avatar: {
     type: String,
     required: true,
-    default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
+    default:
+      'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
   },
   email: {
     type: String,
@@ -29,7 +30,8 @@ const userSchema = new mongoose.Schema({
     unique: true,
     validate: {
       validator(email) {
-        return validator.isEmail(email);},
+        return validator.isEmail(email);
+      },
       message: 'Строк не является адресом электронной',
     },
   },
@@ -38,23 +40,26 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
     select: false,
-  }
+  },
 });
 
-userSchema.statics.findUserByCredentials = function(email, password) {
+userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email })
     .select('+password')
     .then((user) => {
       if (!user) {
         throw new ErrorAuthorization('Неправильные почта или пароль');
       }
-      return bcrypt.compare(password, user.password)
-        .then((matched) => {
-          if (!matched) {
-            return Promise.reject(new ErrorAuthorization('Неправильные почта или пароль'));
-          }
-          return user; // теперь user доступен
-        });
+      return bcrypt.compare(password, user.password).then((matched) => {
+        if (!matched) {
+          return Promise.reject(
+            new ErrorAuthorization(
+              'Неправильные почта или пароль',
+            ),
+          );
+        }
+        return user; // теперь user доступен
+      });
     });
 };
 
