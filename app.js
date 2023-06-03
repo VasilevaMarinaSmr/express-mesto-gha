@@ -9,7 +9,7 @@ const { auth } = require("./middlewares/auth");
 const { login, createUser, logout } = require("./controllers/users");
 
 const { PORT = 3000 } = process.env;
-const { NotFoundError } = require("./errors/datat-not-found-err");
+const { DataNotFoundError } = require("./errors/not-found-err");
 const { urlTemplate } = require('./utils/url-template');
 const app = express();
 app.use(cookieParser());
@@ -48,19 +48,19 @@ app.use(auth);
 app.use("/", require("./routes/users"));
 app.use("/", require("./routes/cards"));
 app.post("/signout", logout);
-app.use("*", (req, res, next) => {
-  next(new NotFoundError({ message: "Cтраница не существует" }));
+
+app.use('*', () => {
+  throw new DataNotFoundError('Cтраница не существует');
 });
+
 app.use(errors());
+
 app.use((err, req, res, next) => {
-  const { statusCode, message } = err;
-  if (statusCode) {
-    return res.status(statusCode).send({ message });
-  }
-  return next();
+  const statusCode = err.statusCode || 500;
+  const message = statusCode === 500 ? 'На сервере произошла ошибка' : err.message;
+  res.status(statusCode).send({ message });
+  next();
 });
-app.use((req, res) => {
-  res.status(500).send({ message: "На сервере произошла ошибка" });
-});
+
 
 app.listen(PORT);

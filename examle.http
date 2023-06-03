@@ -29,7 +29,7 @@ content-type: application/json
 
 
 ##################
-GET  http://127.0.0.1:3000/users/647a59a3c6ab891012c5f3b1
+GET  http://127.0.0.1:3000/users/647a59a3c6ab891012c5f3b
 
 content-type: application/json
 
@@ -164,4 +164,14 @@ content-type: application/json
 #################
 
 POST  http://127.0.0.1:3000/signout
+content-type: application/json
+
+
+
+
+#################
+
+
+GET  http://127.0.0.1:3000/sfsf
+
 content-type: application/json
