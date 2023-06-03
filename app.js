@@ -9,7 +9,7 @@ const { auth } = require("./middlewares/auth");
 const { login, createUser, logout } = require("./controllers/users");
 
 const { PORT = 3000 } = process.env;
-const { DataNotFoundError } = require("./errors/not-found-err");
+const NotFoundError = require("./errors/not-found-error");
 const { urlTemplate } = require('./utils/url-template');
 const app = express();
 app.use(cookieParser());
@@ -50,7 +50,7 @@ app.use("/", require("./routes/cards"));
 app.post("/signout", logout);
 
 app.use('*', () => {
-  throw new DataNotFoundError('Cтраница не существует');
+  throw new NotFoundError('Cтраница не существует');
 });
 
 app.use(errors());

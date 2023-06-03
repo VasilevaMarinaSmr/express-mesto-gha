@@ -2,7 +2,7 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const ErrorRequest = require("../errors/error-request");
-const ErrorDataNotFound = require("../errors/not-found-err");
+const NotFoundError = require("../errors/not-found-error");
 const ConflictError = require("../errors/conflict-error");
 
 const { NODE_ENV, JWT_SECRET } = process.env;
@@ -64,7 +64,7 @@ module.exports.updateProfile = (req, res, next) => {
   )
     .then((user) => {
       if (!user) {
-        throw new ErrorDataNotFound("Пользователь с указанным _id не найден.");
+        throw new NotFoundError("Пользователь с указанным _id не найден.");
       } else {
         res.send(user);
       }
@@ -91,7 +91,7 @@ module.exports.updateAvatar = (req, res, next) => {
   )
     .then((user) => {
       if (!user) {
-        throw new ErrorDataNotFound("Пользователь с указанным _id не найден.");
+        throw new NotFoundError("Пользователь с указанным _id не найден.");
       } else {
         res.send(user);
       }
