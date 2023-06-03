@@ -36,14 +36,7 @@ router.get(
   "/users/:userId",
   celebrate({
     params: Joi.object().keys({
-      cardId: Joi.string()
-        .required()
-        .custom((value, helpers) => {
-          if (!ObjectId.isValid(value)) {
-            return helpers.error("any.invalid");
-          }
-          return value;
-        }),
+      userId: Joi.string().required().length(24).hex(),
     }),
   }),
   getUser
