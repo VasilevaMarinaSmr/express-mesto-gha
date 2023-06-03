@@ -8,6 +8,7 @@ const {
   getUsers,
   updateProfile,
   updateAvatar,
+  getCurrentUser
 } = require("../controllers/users");
 
 router.patch(
@@ -31,7 +32,7 @@ router.patch(
   updateAvatar
 );
 
-router.get("/users", getUsers);
+
 router.get(
   "/users/:userId",
   celebrate({
@@ -41,5 +42,9 @@ router.get(
   }),
   getUser
 );
+
+
+router.get('/users/me', getCurrentUser);
+router.get("/users", getUsers);
 
 module.exports = router;
