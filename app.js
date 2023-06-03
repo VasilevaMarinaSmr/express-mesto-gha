@@ -10,7 +10,7 @@ const { login, createUser, logout } = require("./controllers/users");
 
 const { PORT = 3000 } = process.env;
 const { NotFoundError } = require("./errors/datat-not-found-err");
-const urlTemplate = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/;
+const { urlTemplate } = require('./utils/url-template');
 const app = express();
 app.use(cookieParser());
 
@@ -20,6 +20,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/mestodb", {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.post(
   "/signin",
   celebrate({

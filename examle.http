@@ -60,7 +60,7 @@ content-type: application/json
 POST  http://127.0.0.1:3000/cards
 content-type: application/json
 
-{ "name": "mesto3",
+{ "name": "mesto11113",
   "link": "https://mobimg.b-cdn.net/v3/fetch/e6/e6631960d3d446633839c78db26f82ce.jpeg"
 }
 
@@ -70,12 +70,14 @@ POST  http://127.0.0.1:3000/cards
 content-type: application/json
 
 { "name": "mesto2",
-  "link": "https://mobimg.b-cdn.net/v3/fetch/e6/e6631960d3d446633839c78db26f82ce.jpeg"
+
+
+
 }
 
 #############
 
-DELETE  http://127.0.0.1:3000/cards/647a59ebc6ab891012c5f3b5
+DELETE  http://127.0.0.1:3000/cards/647aee77b2ae0e316baa2adb
 content-type: application/json
 
 #############
@@ -93,13 +95,13 @@ content-type: application/json
 ############
 
 
-PUT   http://127.0.0.1:3000/cards/64624a4968ed446496ffd84c/likes
+PUT   http://127.0.0.1:3000/cards/64624a4968446496ffd84c/likes
 content-type: application/json
 
 ############
 
 
-DELETE   http://127.0.0.1:3000/cards/64624a4968ed446496ffd84c/likes
+DELETE   http://127.0.0.1:3000/cards/646268ed446496ffd84c/likes
 content-type: application/json
 
 
@@ -155,7 +157,7 @@ POST  http://127.0.0.1:3000/signin
 content-type: application/json
 
 {
-  "email": "user1mail.ru",
+  "email": "user1@mail.ru",
   "password": "userenok1"
 }
 

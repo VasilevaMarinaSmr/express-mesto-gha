@@ -12,8 +12,7 @@ module.exports.auth = (req, res, next) => {
       NODE_ENV === "production" ? JWT_SECRET : "dev-secret"
     );
   } catch (err) {
-    next(new errorAuthorization("Передан неверный логин или пароль"));
-    return;
+    throw new errorAuthorization("Неверный логин или пароль");
   }
   req.user = payload;
   next();
