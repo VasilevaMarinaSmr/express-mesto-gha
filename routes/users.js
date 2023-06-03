@@ -32,6 +32,7 @@ router.patch(
   updateAvatar
 );
 
+router.get('/users/me', getCurrentUser);
 
 router.get(
   "/users/:userId",
@@ -44,7 +45,6 @@ router.get(
 );
 
 
-router.get('/users/me', getCurrentUser);
-router.get("/users", getUsers);
+router.get('/users/me', getCurrentUser);router.get("/users", getUsers);
 
 module.exports = router;

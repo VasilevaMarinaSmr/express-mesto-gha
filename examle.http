@@ -172,6 +172,6 @@ content-type: application/json
 #################
 
 
-GET  http://127.0.0.1:3000/sfsf
+GET  http://127.0.0.1:3000/users/me
 
 content-type: application/json
