@@ -58,7 +58,7 @@ content-type: application/json
 POST  http://127.0.0.1:3000/cards
 content-type: application/json
 
-{ "name": "mesto11113",
+{ "name": "mesto41",
   "link": "https://mobimg.b-cdn.net/v3/fetch/e6/e6631960d3d446633839c78db26f82ce.jpeg"
 }
 
